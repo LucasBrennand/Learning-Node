@@ -1,0 +1,67 @@
+import { fastify } from "fastify";
+// import DatabaseMemory from "./database-memory.js";
+import {DatabasePostgres} from "./database-postgres.js"
+import { title } from "node:process";
+
+const server = fastify();
+// const database = new DatabaseMemory();
+const database = new DatabasePostgres()
+
+
+server.post("/videos", async (request, reply) => {
+  const { title, description, duration } = request.body;
+
+  await database.create({
+    title: title,
+    description: description,
+    duration: duration,
+  });
+
+  return reply.status(201).send();
+});
+
+server.get("/videos",  async (request) => {
+  const search = request.query.search;
+  const videos = await database.list(search);
+  return videos;
+});
+
+server.put("/videos/:id", async (request, reply) => {
+  const videoId = request.params.id;
+  const { title, description, duration } = request.body;
+
+  await database.update(videoId, {
+    title: title,
+    description: description,
+    duration: duration,
+  });
+
+  return reply.status(204).send();
+});
+
+server.delete("/videos/:id", async (request, reply) => {
+  const videoId = request.params.id;
+  await database.delete(videoId);
+
+  return reply.status(204).send();
+});
+
+server.listen({
+  port: process.env.PORT ? Number(process.env.PORT) : 3000,
+});
+
+// server.post('/videos', () => { //CREATE
+//     return 'Create Videos'
+// })
+
+// server.get('/videos', () => { //READ
+//     return 'Read Videos'
+// })
+
+// server.put('/videos/:id', () => { //UPDATE
+//     return 'Update video'
+// })
+
+// server.delete('/videos/:id', () => { //UPDATE
+//     return 'Update video'
+// })

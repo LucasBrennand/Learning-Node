@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@neondatabase/serverless": "github:neondatabase/serverless",
+    "fastify": "^5.7.2",
+    "neondatabase": "^0.0.1-security",
+    "postgres": "^3.4.8"
+  },
+  "type": "module",
+  "devDependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
