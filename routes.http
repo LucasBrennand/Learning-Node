@@ -1,4 +1,4 @@
-POST http://localhost:3333/videos
+POST https://learning-node-nekd.onrender.com/videos
 Content-Type: application/json 
 # TEM QUE DIZER O TIPO A SER ENVIADO
 Accept-Language: pt
@@ -13,12 +13,17 @@ Accept-Language: pt
 ###
 # TRES # SEPARA AS REQUISIÇOES
 
-# GET http://localhost:3333/videos USA ASSIM PRA PEGAR TODOS
-GET http://localhost:3333/videos?search=node
+# USA ASSIM PRA PEGAR TODOS
+GET https://learning-node-nekd.onrender.com/videos
 
 ###
 
-PUT http://localhost:3333/videos/dc491519-f6f1-4cef-8d9e-10f3b3362dc6
+# USA ASSIM PRA BUSCAR VIDEOS ESPECIFICOS
+GET https://learning-node-nekd.onrender.com/videos?search=node
+
+###
+
+PUT https://learning-node-nekd.onrender.com/videos/dc491519-f6f1-4cef-8d9e-10f3b3362dc6
 Content-Type: application/json 
 # TEM QUE DIZER O TIPO A SER ENVIADO
 Accept-Language: pt
@@ -31,4 +36,4 @@ Accept-Language: pt
 
 ###
 
-DELETE http://localhost:3333/videos/dc491519-f6f1-4cef-8d9e-10f3b3362dc6
+DELETE https://learning-node-nekd.onrender.com/videos/dc491519-f6f1-4cef-8d9e-10f3b3362dc6
