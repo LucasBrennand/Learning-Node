@@ -13,7 +13,12 @@ Accept-Language: pt
 ###
 # TRES # SEPARA AS REQUISIÇOES
 
-# GET https://learning-node-nekd.onrender.com/videos USA ASSIM PRA PEGAR TODOS
+# USA ASSIM PRA PEGAR TODOS
+GET https://learning-node-nekd.onrender.com/videos
+
+###
+
+# USA ASSIM PRA BUSCAR VIDEOS ESPECIFICOS
 GET https://learning-node-nekd.onrender.com/videos?search=node
 
 ###
